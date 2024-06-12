@@ -71,6 +71,18 @@ public class EmaillistServlet extends BaseServlet{
 			resp.sendRedirect(req.getContextPath() + "/el");	//	Redirect (3xx)
 			
 		} else if ("delete".equals(actionName)) {
+			String no = req.getParameter("no");
+			Long num = Long.parseLong(no);
+
+			EmaillistDao dao = new EmaillistDaoOracleImpl(dbuser, dbpass);
+
+			boolean success = dao.delete(num);
+
+			if (success){
+				resp.sendRedirect(req.getContextPath() + "/el");
+			} else {
+				
+			}
 			
 		} else {
 			super.doPost(req, resp);

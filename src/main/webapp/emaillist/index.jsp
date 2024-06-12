@@ -20,7 +20,7 @@ String dbpass = context.getInitParameter("dbpass");
 <script>
 	function confirmDel(no){
 		if(confirm('정말 삭제하시겠습니까?')){
-			window.location.href = "emaillist/delete.jsp?no="+no;
+			window.location.href = "delete.jsp?no="+no;
 		} else{
 			
 		}

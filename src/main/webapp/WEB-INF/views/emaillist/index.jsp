@@ -15,11 +15,12 @@ if (request.getAttribute("list") instanceof List){	//	전달받은 'list'가 Lis
 <meta charset="UTF-8">
 <title>메일링 리스트:메인</title>
 <script>
-	function confirmDel(no){
-		if(confirm('정말 삭제하시겠습니까?')){
-			window.location.href = "/el?a=delete?no="+no;
-		} else{
-			
+	function delete_item(event, frm) {
+		event.preventDefault();
+		
+		let choice = confirm("메일을 삭제하시겠습니까?");
+		if (choice) {
+			frm.submit();
 		}
 	}
 </script>
@@ -48,11 +49,13 @@ if (request.getAttribute("list") instanceof List){	//	전달받은 'list'가 Lis
 		
 	</table>
 	
-	<form method = "post">
 	<a href= 'edit.jsp?no='><button id= sss>수정</button></a>
-	<button onclick="confirmDel(<%=vo.getNo() %>)" id = del>삭제</button>
+	<form method="POST" action="<%= request.getContextPath() %>/el"
+		onsubmit="delete_item(event, this)">
+	<input type="hidden" name="no" value="<%= vo.getNo() %>">
+	<input type="hidden" name="a" value="delete">
+	<button type="submit">삭제</button>	
 	</form>
-	
 	<br />
 	<%
 	}
