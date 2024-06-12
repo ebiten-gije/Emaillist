@@ -24,18 +24,22 @@ EmailVo vo = dao.searchNo(num);
 <title>수정하는 페이지</title>
 </head>
 <body>
+	<h1>수정하는 페이지</h1>
 	<table>
 		<tr>
 			<th>성</th>
 			<td><%=vo.getLastName() %></td>
+			<td><button>여기를 수정?</button></td>
 		</tr>
 		<tr>
 			<th>이름</th>
 			<td><%=vo.getFirstName() %></td>
+			<td><button>여기를 수정?</button></td>
 		</tr>
 		<tr>
 			<th>이메일</th>
 			<td><%= vo.getEmail() %></td>
+			<td><button>여기를 수정?</button></td>
 		</tr>
 	</table>
 </body>

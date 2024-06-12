@@ -22,7 +22,7 @@ EmaillistDao dao = new EmaillistDaoOracleImpl(dbuser, dbpass);
 boolean success = dao.insert(vo);
 
 if(success){
-	response.sendRedirect(request.getContextPath());
+	response.sendRedirect(request.getContextPath() + "/emaillist");
 } else {
 	
 
